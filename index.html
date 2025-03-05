@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Verification PDF Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Insurance Verification</h1>
+        </header>
+        
+        <main>
+            <form id="verificationForm" autocomplete="off">
+                <input type="text" id="patientName" placeholder="👤 Patient Name" required>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="verificationDate">Verification Date</label>
+                        <input type="date" id="verificationDate" required>
+                    </div>
+                </div>
+
+                <input type="text" id="insuranceProvider" placeholder="🏥 Insurance Provider" required>
+                <input type="text" id="policyNumber" placeholder="🔢 Policy Number" required>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="deductible">Deductible</label>
+                        <div class="input-group">
+                            <input type="text" id="deductible" placeholder="Total Deductible" class="currency-input" required>
+                            <input type="text" id="deductibleMet" placeholder="Amount Met" class="currency-input">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="paymentType">Payment Type</label>
+                        <div class="input-group">
+                            <select id="paymentType">
+                                <option value="copay">Co-pay</option>
+                                <option value="coinsurance">Co-insurance</option>
+                            </select>
+                            <input type="text" id="paymentAmount" placeholder="Amount" class="currency-input">
+                        </div>
+                        <small id="paymentTypeLabel">Co-pay: Fixed dollar amount</small>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="visitLimit">Visit Limit</label>
+                        <input type="number" id="visitLimit" placeholder="Total Visits">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="visitRemaining">Visits Remaining</label>
+                        <input type="number" id="visitRemaining" placeholder="Available Visits">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="referralRequired">Referral Required</label>
+                        <select id="referralRequired">
+                            <option value="">Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="preauth">Pre-Authorization</label>
+                        <select id="preauth">
+                            <option value="">Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <input type="text" id="verifiedBy" placeholder="📞 Verified By and Reference Number">
+
+                <div class="form-group">
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes" placeholder="Enter any additional information, special instructions, or important details..." rows="4"></textarea>
+                </div>
+
+                <button type="button" id="exportPDF">Export PDF</button>
+                <button type="button" id="clearForm" class="clear-btn">Clear Form</button>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Insurance Verification Tool</p>
+        </footer>
+    </div>
+</body>
+</html>
